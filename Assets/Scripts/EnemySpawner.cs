@@ -4,25 +4,27 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    GameObject angel;
-    GameObject devil;
-    float enemySpawnTime;// = 10.0f;
+    public GameObject angelPrefab;
+    public GameObject devilPrefab;
+    float enemySpawnTime = 2.0f;// = 10.0f;
     float curTime = 0.0f;
+    public GameObject player;
     
     // Start is called before the first frame update
     void Start()
     {
-        enemySpawnTime = 2.0f;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        enemySpawnTime = enemySpawnTime + Time.deltaTime;
+        curTime = curTime + Time.deltaTime;
         if(curTime>=enemySpawnTime)
         {
-            Instantiate(angel, new Vector3(0,10,0), Quaternion.identity);
-            Instantiate(devil, new Vector3(0,-10,0), Quaternion.identity);
+            GameObject spawnedAngle = GameObject.Instantiate(angelPrefab, new Vector3(0,10,0), Quaternion.identity);
+            spawnedAngle.GetComponent<EnemyMovementController>().setEnemyTarget(player);
+            //Instantiate(devilPrefab, new Vector3(0,-10,0), Quaternion.identity);
             curTime = 0.0f;
         }
     }

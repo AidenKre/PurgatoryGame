@@ -6,6 +6,7 @@ public class EnemyMovementController : MonoBehaviour
 {
     Movement movement;
     GameObject player;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,5 +21,10 @@ public class EnemyMovementController : MonoBehaviour
         //mousePos.z = 0;
 
         movement.SetTarget(player.transform.position);
+    }
+
+    public void setEnemyTarget(GameObject target)
+    {
+        player = target;
     }
 }
