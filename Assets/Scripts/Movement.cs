@@ -55,6 +55,13 @@ public class Movement : MonoBehaviour
 
     }
 
+    public void SetTargetDirection(Vector3 direction)
+    {
+        direction = direction.normalized;
+        direction = direction * slowdownThreshold * 2;
+        SetTarget(transform.position + direction);
+    }
+
     float GetAcceleration()
     {
         if (Time.time - lastKnockbackTime < knockbackResetTime)
