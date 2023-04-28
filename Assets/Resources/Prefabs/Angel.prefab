@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1453410293654466184}
   - component: {fileID: 6335026755132107462}
-  - component: {fileID: -8754917457783829347}
   - component: {fileID: -6095112268648167802}
   - component: {fileID: -8978113327657055291}
+  - component: {fileID: 5478066833827834310}
   m_Layer: 0
   m_Name: Angel
   m_TagString: Untagged
@@ -87,18 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-8754917457783829347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 549677420890991941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3c6b5539c3a82c4b9d859da9743bce8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-6095112268648167802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,3 +123,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5478066833827834310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549677420890991941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c6b5539c3a82c4b9d859da9743bce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
