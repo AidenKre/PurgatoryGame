@@ -14,12 +14,27 @@ public class Movement : MonoBehaviour
 
     Rigidbody2D controlledRigidbody;
 
+    [SerializeField] float knockbackResetTime;
+    [SerializeField] float knockbackAcceleration;
+    float lastKnockbackTime = 0;
+
     Vector3 currentVelocity;
     Vector3 targetVelocity;
     // Start is called before the first frame update
     void Start()
     {
         controlledRigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            Vector3 knockback = Vector3.up + Vector3.right;
+            knockback = knockback.normalized;
+            knockback *= 105;
+            ApplyKnockback(knockback);
+        }
+
     }
 
     public void SetTarget(Vector3 target)
@@ -34,9 +49,26 @@ public class Movement : MonoBehaviour
 
         targetVelocity *= speed / slowdownThreshold;
 
-        currentVelocity = Vector3.Lerp(currentVelocity, targetVelocity, acceleration * Time.deltaTime);
+        currentVelocity = Vector3.Lerp(currentVelocity, targetVelocity, GetAcceleration() * Time.deltaTime);
 
         controlledRigidbody.velocity = currentVelocity;
 
+    }
+
+    float GetAcceleration()
+    {
+        if (Time.time - lastKnockbackTime < knockbackResetTime)
+        {
+            return knockbackAcceleration;
+        }
+        return acceleration;
+    }
+
+
+
+    public void ApplyKnockback(Vector3 direction)
+    {
+        currentVelocity += direction;
+        lastKnockbackTime = Time.time;
     }
 }
