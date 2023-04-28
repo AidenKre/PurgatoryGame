@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class Spin : MonoBehaviour
 {
-    public float speed;
+    public Vector3 speed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +16,6 @@ public class Spin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(speed,0,0));
+        transform.Rotate(speed);
     }
 }
