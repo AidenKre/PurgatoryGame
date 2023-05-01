@@ -19,6 +19,7 @@ public class KnockbackSource : MonoBehaviour
     [SerializeField] float knockbackForce;
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        /*
         Movement movement = collision.collider.GetComponent<Movement>();
         if (movement != null)
         {
@@ -27,6 +28,20 @@ public class KnockbackSource : MonoBehaviour
             knockback = knockback.normalized;
             knockback *= knockbackForce;
             movement.ApplyKnockback(knockback);
+        }*/
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        Movement movement = collider.GetComponent<Movement>();
+        if (movement != null)
+        {
+            Vector3 collisionPoint = transform.position;
+            Vector3 knockback = movement.transform.position - collisionPoint;
+            knockback = knockback.normalized;
+            knockback *= knockbackForce;
+            movement.ApplyKnockback(knockback);
         }
+
     }
 }
